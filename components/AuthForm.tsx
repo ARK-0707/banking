@@ -157,7 +157,7 @@ const AuthForm = ({ type }: { type:string }) => {
                                             control={form.control}
                                             name='postalCode'
                                             label='Postal Code'
-                                            placeholder='Example: 111011'
+                                            placeholder='Example: 111111'
                                         />
                                     </div>
                                     <div className="flex gap-4">
