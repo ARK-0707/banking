@@ -1,7 +1,8 @@
-"use client"
-import React, {useState} from 'react'
-import Link from "next/link";
-import Image from "next/image";
+'use client';
+
+import Image from 'next/image'
+import Link from 'next/link'
+import React, { useState } from 'react'
 
 import { z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
@@ -17,11 +18,12 @@ import {
     FormMessage,
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
-import CustomInput from "@/components/CustomInput";
-import {authFormSchema} from "@/lib/utils";
-import {Loader2} from "lucide-react";
-import {useRouter} from "next/navigation";
-import {getLoggedInUser, signIn, signUp} from "@/lib/actions/user.actions";
+import CustomInput from './CustomInput';
+import { authFormSchema } from '@/lib/utils';
+import { Loader2 } from 'lucide-react';
+import { useRouter } from 'next/navigation';
+import { getLoggedInUser, signIn, signUp } from '@/lib/actions/user.actions';
+import PlaidLink from './PlaidLink';
 
 
 const AuthForm = ({ type }: { type:string }) => {
@@ -48,7 +50,19 @@ const AuthForm = ({ type }: { type:string }) => {
             // Sign Up with Appwrite & create a plaid link token
 
             if (type === 'sign-up') {
-                const newUser = await signUp(data);
+                const userData = {
+                    firstName: data.firstName!,
+                    lastName: data.lastName!,
+                    address1: data.address1!,
+                    city: data.city!,
+                    state: data.state!,
+                    postalCode: data.postalCode!,
+                    dateOfBirth: data.dateOfBirth!,
+                    ssn: data.ssn!,
+                    email: data.email,
+                    password: data.password
+                }
+                const newUser = await signUp(userData);
 
                 setUser(newUser);
             }
@@ -98,6 +112,7 @@ const AuthForm = ({ type }: { type:string }) => {
             {user ? (
                 <div className="flex flex-col gap-4">
                     {/* PlaidLink */}
+                    <PlaidLink user={user} variant="primary" />
                 </div>
             ) : (
                 <>
@@ -121,8 +136,8 @@ const AuthForm = ({ type }: { type:string }) => {
                                     </div>
                                     <CustomInput
                                         control={form.control}
-                                        name='address'
-                                        label='Adress'
+                                        name='address1'
+                                        label='Address'
                                         placeholder='Enter your specific address'
                                     />
                                     <CustomInput
@@ -136,7 +151,7 @@ const AuthForm = ({ type }: { type:string }) => {
                                             control={form.control}
                                             name='state'
                                             label='State'
-                                            placeholder='Example: Punjab'
+                                            placeholder='Example: NY'
                                         />
                                         <CustomInput
                                             control={form.control}
@@ -150,7 +165,7 @@ const AuthForm = ({ type }: { type:string }) => {
                                             control={form.control}
                                             name='dateOfBirth'
                                             label='Date of Birth'
-                                            placeholder='dd-mm-yyyy'
+                                            placeholder='yyyy-mm-dd'
                                         />
                                         <CustomInput
                                             control={form.control}
