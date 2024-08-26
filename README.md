@@ -1,6 +1,8 @@
+![BANKING PLATFORM](https://github.com/user-attachments/assets/3a2d601d-f3d3-4a90-829f-b813acd79ea9)
+
 # Horizon Banking Platform
 
-Welcome to the **Horizon Banking App**, a modern solution for seamless banking and financial management. Built with cutting-edge technologies, our app offers a secure and user-friendly platform to manage your finances, connect with your banks, and transfer funds with ease.
+Welcome to the **Horizon Banking App**, a modern solution for seamless banking and financial management. Built with cutting-edge technologies, our website offers a secure and user-friendly platform to manage your finances, connect with your banks, and transfer funds with ease.
 
 
 ## 🌐 Website
@@ -37,6 +39,26 @@ Here are some glimpses of our app:
 
 ## 📖 Getting Started
 
+To run this project online, follow these steps:
+1. **Go to the Website**:
+   [Banking App](https://banking-livid-alpha.vercel.app/)
+
+2. **Sign-Up as a New User**:
+   Fill the details in the sign-up form. Remember to put the correct email and password as well as city and state according to the US's states and cities. You can put anything in the other fields.
+
+3. **Connect Bank**:
+   After the filling of the sign-up form. Click on the *Connect bank* button to connect your bank and for the plaid & dwolla username & password you can use:
+   ```bash
+   username: user_good
+   password: pass_good
+   ```
+
+4. **Dashboard**:
+   After you connect your bank and agree to all the policies. you will be redirected to the Dashboard of the website where you can see your connected banks. Some fake transactions fetched from the Dwolla Sandbox.
+
+5. **Start Transfer Funds**:
+   You now start transferring your funds but remember to have shareable Id of the reciever and also this is a sandbox payment so it will takes 5-6 days to show the transaction success but it will show that the transfer is in the process.
+
 To run this project locally, follow these steps:
 
 1. **Clone the Repository**:
@@ -58,6 +80,10 @@ To run this project locally, follow these steps:
    ```
 
    The app will be running on [http://localhost:3000](http://localhost:3000).
+
+## 🪪 Important 
+
+All the transfer of money and data showing in the website is not real rather it is generated from the dwolla sandbox to only show how these kinds of bank transactions work. The money transferred in the website is not real.
 
 ## 🤝 Contributing
 
